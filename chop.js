@@ -1,21 +1,16 @@
-const dataset = {
-    bread: "baguette",
-    cheese: "brie cheese",
-    };
-    
-// The info inside the {{}} needs to be the same key in dataset
-const myTemplate = "I like to eat {{bread}} and {{cheese}}";
-
-const chop = (template, dataset) => {
-    console.log(`${template};`)
-    for (i in dataset) {
-        const chartoreplace = `{{${i}}}`;
-        template = template.replace(chartoreplace, dataset[i])
-    }
-
-    console.log(`${template};`)
-    return `${template};`
+var dataset = {
+    bread: 'baguette',
+    cheese: 'brie cheese'
 };
-
+var myTemplate = "I like to eat {{bread}} and {{cheese}}";
+var chop = function (template, dataset) {
+    console.log("template: " + template + ";");
+    for (var expression in dataset) {
+        var regex = /{{[\w\d?]+}}/i;
+        template = template.replace(regex, dataset[expression]);
+    }
+    console.log("template after changes: " + template + ";");
+    return template + ";";
+};
 chop(myTemplate, dataset);
 // >> 'I like to eat baguette and brie cheese'
