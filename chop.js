@@ -38,4 +38,4 @@ dataset = {
 };
 chop(myTemplate, dataset);
 // export modules to be used in chop.test.js
-module.exports = { chop: chop, myTemplate: myTemplate, dataset: dataset };
+// module.exports = {chop: chop, myTemplate: myTemplate, dataset: dataset}

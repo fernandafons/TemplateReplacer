@@ -13,9 +13,9 @@ Tests were made using jest. We test if type of myTemplate is string, if type of 
 2. Make sure you have Typescript installed. You can check how to do that [here](https://www.typescriptlang.org/download)
 3. Make sure you are in "Chops" directory
 4. Run `tsc chop.ts -w`
-6. Copy the path of index.html file
-5. Open you Browser and paste the path copied in the previous step
-6. Check the console on your inspect tool
+5. Copy the path of index.html file
+6. Open you Browser and paste the path copied in the previous step
+7. Check the console on your inspect tool
 
 ----------------------------
 ## Making changes in variables template and dataset
@@ -26,8 +26,9 @@ Both variables can be find in the end of the main file 'chop.ts'. Make sure the 
 ## Running tests
 
 1. Make sure you have jest installed. You can learn how to do it [here](https://jestjs.io/docs/getting-started#:~:text=Running%20from%20command%20line,a%20variety%20of%20useful%20options.&text=If%20you'd%20like%20to,the%20Jest%20CLI%20Options%20page.)
-1. Run `tsc chop.ts`
-2. Run `npm run test`
+2. Uncomment the last line of 'chop.ts' file, where chop is exported (further information about this step is given in "Note" section of this readme)
+3. Run `tsc chop.ts`
+4. Run `npm run test`
 ----------------------------
 
 ## Built With
@@ -38,4 +39,6 @@ Both variables can be find in the end of the main file 'chop.ts'. Make sure the 
 ----------------------------
 
 ## Note
-An `Uncaught ReferenceError: module is not defined` error is being shown in the final line on console log. Since this error do not interfere with the proper functioning of the script I decided to commit it, but I'm working on it.
+An `Uncaught ReferenceError: module is not defined` error is shown in the browser when the last line of 'chop.ts' file is uncommented. For now, commenting the export line works for the application, but makes the testing impossible, so make sure to uncomment it before running the tests. 
+
+I decided to import via 'require' and not via regular `import {x} from './x';` because I was getting an error with regular import: "Jest encountered an unexpected token". I'm currently working on it and trying to find a better solution. 
