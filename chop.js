@@ -1,5 +1,6 @@
 var dataset;
 var myTemplate;
+// Methods
 var chop = function (template, dataset) {
     console.log("template: " + template + ";");
     variablesValidation(template, dataset);
@@ -28,11 +29,13 @@ var variablesValidation = function (template, dataset) {
         }
     }
 };
-myTemplate = "I like to eat {{bread}} and {{cheese}}";
+// variables definition
+myTemplate = "I like to eat {{x}} and {{x}}";
+// changes made in dataset keys need to be made in DatasetInterface as well
 dataset = {
     bread: 'baguette',
     cheese: 'brie cheese'
 };
 chop(myTemplate, dataset);
-// >> 'I like to eat baguette and brie cheese'
+// export modules to be used in chop.test.js
 module.exports = { chop: chop, myTemplate: myTemplate, dataset: dataset };

@@ -1,4 +1,4 @@
-
+// variables initialization
 interface DatasetInterface {
     bread: string|number;
     cheese: string|number;
@@ -7,6 +7,7 @@ interface DatasetInterface {
 let dataset: DatasetInterface;
 let myTemplate: string;
 
+// Methods
 const chop = (template: string, dataset: object): string => {
     console.log(`template: ${template};`)
     variablesValidation(template, dataset)
@@ -34,13 +35,15 @@ const variablesValidation = (template: string, dataset: object) => {
     }
 };
 
-myTemplate = "I like to eat {{bread}} and {{cheese}}";
+// variables definition
+myTemplate = "I like to eat {{x}} and {{x}}";
+// changes made in dataset keys need to be made in DatasetInterface as well
 dataset  = {
     bread: 'baguette',
     cheese: 'brie cheese'
 };
 
 chop(myTemplate, dataset);
-// >> 'I like to eat baguette and brie cheese'
 
+// export modules to be used in chop.test.js
 module.exports = {chop: chop, myTemplate: myTemplate, dataset: dataset}
