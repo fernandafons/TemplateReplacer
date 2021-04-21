@@ -4,12 +4,12 @@ interface DatasetInterface {
     cheese: string|number;
 }
 
-const dataset: DatasetInterface = {
+let dataset: DatasetInterface = {
     bread: 'baguette',
     cheese: 'brie cheese'
 };
 
-const myTemplate = "I like to eat {{bread}} and {{cheese}}";
+let myTemplate: string = "I like to eat {{bread}} and {{cheese}}";
 
 const chop = (template: string, dataset: object): string => {
     console.log(`template: ${template};`)
@@ -24,3 +24,5 @@ const chop = (template: string, dataset: object): string => {
 
 chop(myTemplate, dataset);
 // >> 'I like to eat baguette and brie cheese'
+
+module.exports = {chop: chop, myTemplate: myTemplate, dataset: dataset}

@@ -14,3 +14,4 @@ var chop = function (template, dataset) {
 };
 chop(myTemplate, dataset);
 // >> 'I like to eat baguette and brie cheese'
+module.exports = { chop: chop, myTemplate: myTemplate, dataset: dataset };
