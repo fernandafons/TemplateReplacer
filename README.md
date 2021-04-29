@@ -2,7 +2,7 @@
 
 This script was build to make possible replace information inside a template. The main function is called 'chop' and expects two parameters: template(string) and dataset(object). If any of these parameters is missing or do not match with the expected type an error message will be shown. The error messages are provided by the variablesValidation function. The variablesValidation method also verifies if the data sent in dataset is either string or number, and if that is not the case, shows a error message.
 
-To make the replace of the expressions possible I decided to use regex, this way the user can use any word in its template with no need of matching it with the key passed in dataset, as long as it is inside double brackets as so: {{}}. Example of possible template: "My name is {{name}} and I am {{age}} years old".
+To make the replace in the template possible the expression inside double brackets should be equal to the keys passed in dataset. Example of possible template: "My name is {{name}} and I am {{age}} years old". In this case, dataset has to have 'name' and 'age' as keys for values that should be placed into template.
 If you want to change the name of the keys in dataset variable make sure to change it in its interface (DatasetInterface) too.
 
 Tests were made using jest. We test if type of myTemplate is string, if type of dataset is object and if chop function returns string.
@@ -20,7 +20,7 @@ Tests were made using jest. We test if type of myTemplate is string, if type of 
 ----------------------------
 ## Making changes in variables template and dataset
 
-Both variables can be find in the end of the main file 'chop.ts'. Make sure the expressions you want to be replaced with dataset information is inside double brackets as the following: {{x}}. The chop function uses regex to find this pattern, so if the expression is not evolved with {{}} regex will not be able to find it and therefore to replace it correctly.
+Both variables can be find in the end of the main file 'chop.ts'. Make sure the expressions you want to be replaced with dataset information is inside double brackets as the following: {{x}}. The chop function tries to find this pattern, so if the expression is not evolved with {{}} chop function will not be able to find it and therefore to replace it correctly.
 
 ----------------------------
 ## Running tests

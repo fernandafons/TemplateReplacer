@@ -5,7 +5,7 @@ var chop = function (template, dataset) {
     console.log("template: " + template + ";");
     variablesValidation(template, dataset);
     for (var expression in dataset) {
-        var regex = /{{[\w\d?]+}}/i;
+        var regex = "{{" + expression + "}}";
         template = template.replace(regex, dataset[expression]);
     }
     console.log("template after changes: " + template + ";");
@@ -30,7 +30,7 @@ var variablesValidation = function (template, dataset) {
     }
 };
 // variables definition
-myTemplate = "I like to eat {{x}} and {{x}}";
+myTemplate = "I like to eat {{bread}} and {{cheese}}";
 // changes made in dataset keys need to be made in DatasetInterface as well
 dataset = {
     bread: 'baguette',
@@ -38,4 +38,4 @@ dataset = {
 };
 chop(myTemplate, dataset);
 // export modules to be used in chop.test.js
-// module.exports = {chop: chop, myTemplate: myTemplate, dataset: dataset}
+// module.exports = {chop: chop, myTemplate: myTemplate, dataset: dataset};
